@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ascontroldeplagas.com.ar/sitemap.xml
