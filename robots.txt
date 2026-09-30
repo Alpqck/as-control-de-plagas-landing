@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ascontroldeplagas.com.ar/sitemap.xml
+Sitemap: https://as-control-de-plagas-landing.vercel.app/sitemap.xml
