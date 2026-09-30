@@ -2,8 +2,7 @@
 // As Control de Plagas — landing page
 // Sin dependencias externas: menu mobile, header que reacciona al
 // scroll, animacion de aparicion progresiva y el formulario de
-// contacto (por ahora solo confirma en pantalla; conectarlo a un
-// servicio real de email/backend antes de publicar).
+// contacto (manda el mail via Formspree, ver inicializarFormularioContacto).
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -78,21 +77,37 @@ function inicializarScrollReveal() {
 function inicializarFormularioContacto() {
     const form = document.getElementById('contact-form');
     const status = document.getElementById('contact-form-status');
+    const boton = form.querySelector('button[type="submit"]');
 
-    form.addEventListener('submit', (evento) => {
+    form.addEventListener('submit', async (evento) => {
         evento.preventDefault();
 
         if (!form.checkValidity()) {
-            status.textContent = 'Completa todos los campos antes de enviar.';
             status.classList.add('is-error');
+            status.textContent = 'Completa todos los campos antes de enviar.';
             return;
         }
 
-        // TODO: conectar con un servicio real (ej. Formspree, o un
-        // endpoint propio que mande el mail) antes de publicar el sitio.
-        // Por ahora solo confirma en pantalla que se completo el formulario.
+        boton.disabled = true;
         status.classList.remove('is-error');
-        status.textContent = 'Gracias, te vamos a contactar a la brevedad.';
-        form.reset();
+        status.textContent = 'Enviando...';
+
+        try {
+            const respuesta = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { Accept: 'application/json' }
+            });
+
+            if (!respuesta.ok) throw new Error('El servicio de envio no respondio bien');
+
+            status.textContent = 'Gracias, te vamos a contactar a la brevedad.';
+            form.reset();
+        } catch (error) {
+            status.classList.add('is-error');
+            status.textContent = 'No se pudo enviar. Probá de nuevo o escribinos por WhatsApp.';
+        } finally {
+            boton.disabled = false;
+        }
     });
 }
