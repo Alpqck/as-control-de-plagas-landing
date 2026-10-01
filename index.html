@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +17,17 @@
     <header class="header" id="header">
         <div class="container header__row">
             <a href="#inicio" class="brand">
-                <span class="brand__mark"></span>
+                <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+                    <rect width="32" height="32" rx="8" fill="url(#logoGradHeader)"/>
+                    <path d="M16 7l7 3v5c0 5-3 8.5-7 9.5-4-1-7-4.5-7-9.5v-5l7-3Z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
+                    <path d="M13 15.5l2 2 4-4.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="logoGradHeader" x1="0" y1="0" x2="32" y2="32">
+                            <stop offset="0" stop-color="#C8862E"/>
+                            <stop offset="1" stop-color="#1E4335"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
                 <span class="brand__text">As Control<br><span>de Plagas</span></span>
             </a>
 
@@ -53,7 +64,7 @@
 
                 <dl class="hero__stats reveal">
                     <div class="hero__stat">
-                        <dt>+12</dt>
+                        <dt>+<span id="anios-experiencia">18</span></dt>
                         <dd>anios de experiencia</dd>
                     </div>
                     <div class="hero__stat">
@@ -61,8 +72,8 @@
                         <dd>espacios tratados</dd>
                     </div>
                     <div class="hero__stat">
-                        <dt>48hs</dt>
-                        <dd>tiempo de respuesta</dd>
+                        <dt>Mismo dia</dt>
+                        <dd>respondemos tu consulta</dd>
                     </div>
                 </dl>
             </div>
@@ -80,26 +91,26 @@
                 <div class="cards cards--3">
                     <article class="card reveal">
                         <div class="card__icon card__icon--pine" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L4 6v6c0 4.5 3.2 7.9 8 9 4.8-1.1 8-4.5 8-9V6l-8-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <i class="bi bi-shield-check"></i>
                         </div>
                         <h3>Garantia real</h3>
-                        <p>Nos aseguramos de que la plaga quede controlada.</p>
+                        <p>Si la plaga vuelve dentro de los 30 dias, volvemos a tratarlo sin costo. Sin letra chica.</p>
                     </article>
 
                     <article class="card reveal">
                         <div class="card__icon card__icon--amber" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2c4 3 6 6.5 6 10a6 6 0 1 1-12 0c0-3.5 2-7 6-10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                            <i class="bi bi-recycle"></i>
                         </div>
                         <h3>Productos seguros</h3>
-                        <p>Tratamientos certificados, con productos biodegradables y ambientales, autorizados por el Ministerio de Salud.</p>
+                        <p>Tratamientos certificados, con productos biodegradables y ambientales, de una empresa habilitada por la Municipalidad de San Salvador de Jujuy.</p>
                     </article>
 
                     <article class="card reveal">
                         <div class="card__icon card__icon--sage" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none"><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+                            <i class="bi bi-chat-dots"></i>
                         </div>
                         <h3>Respuesta rapida</h3>
-                        <p>Turnos de lunes a sabado, con atencion especializada para emergencias los 365 dias del anio.</p>
+                        <p>Tus consultas se responden el mismo dia. Tambien podes llamarnos directo para turnos y emergencias.</p>
                     </article>
                 </div>
             </div>
@@ -117,7 +128,7 @@
                 <div class="services">
                     <article class="service reveal">
                         <div class="service__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none"><path d="M4 20c4-6 12-6 16 0M8 20V9m8 11V9M6 9c0-3 2.5-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <i class="bi bi-bug-fill"></i>
                         </div>
                         <h3>Fumigacion general</h3>
                         <p>Tratamiento integral contra insectos rastreros y voladores en el hogar o el local.</p>
@@ -125,7 +136,7 @@
 
                     <article class="service reveal">
                         <div class="service__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="10" r="1.2" fill="currentColor"/><path d="M4 14c1-4 3.5-8 8-8s7 4 8 8c-2 2-4.5 3-8 3s-6-1-8-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                            <i class="bi bi-house-exclamation"></i>
                         </div>
                         <h3>Control de roedores</h3>
                         <p>Deteccion de puntos de ingreso, cebado seguro y sellado para que no vuelvan a entrar.</p>
@@ -133,7 +144,7 @@
 
                     <article class="service reveal">
                         <div class="service__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="13" rx="4" ry="6" stroke="currentColor" stroke-width="1.6"/><path d="M9 8l-3-3M15 8l3-3M9 18l-3 3M15 18l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                            <i class="bi bi-bug"></i>
                         </div>
                         <h3>Cucarachas e insectos</h3>
                         <p>Control de cucarachas, hormigas y otras plagas comunes en cocinas y depositos.</p>
@@ -141,7 +152,7 @@
 
                     <article class="service reveal">
                         <div class="service__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M5 8l7-4 7 4M5 16l7 4 7-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <i class="bi bi-tree"></i>
                         </div>
                         <h3>Control de termitas</h3>
                         <p>Inspeccion de estructuras de madera y tratamiento preventivo o correctivo.</p>
@@ -149,7 +160,7 @@
 
                     <article class="service reveal">
                         <div class="service__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v5c0 5-3.2 8.5-7 9.5C8.2 20.5 5 17 5 12V7l7-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                            <i class="bi bi-droplet-half"></i>
                         </div>
                         <h3>Desinfeccion de espacios</h3>
                         <p>Sanitizacion de ambientes para comercios, consultorios y espacios de uso comun.</p>
@@ -157,7 +168,7 @@
 
                     <article class="service reveal">
                         <div class="service__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                            <i class="bi bi-calendar2-check"></i>
                         </div>
                         <h3>Planes preventivos</h3>
                         <p>Visitas periodicas mensuales o trimestrales para que las plagas nunca vuelvan a instalarse.</p>
@@ -191,10 +202,10 @@
 
                     <article class="testimonial reveal">
                         <div class="testimonial__stars" aria-label="5 de 5 estrellas">★★★★★</div>
-                        <p>"Contratamos el plan mensual para el restaurante y fue la mejor decision. Cero quejas de plagas desde que empezamos."</p>
+                        <p>"Contratamos el plan mensual para el local y fue la mejor decision. Cero quejas de plagas desde que empezamos."</p>
                         <div class="testimonial__author">
                             <span class="testimonial__name">Martin Souza</span>
-                            <span class="testimonial__role">Dueno, Restaurante El Fogon</span>
+                            <span class="testimonial__role">Comercio local</span>
                         </div>
                     </article>
 
@@ -275,15 +286,25 @@
     <footer class="footer">
         <div class="container footer__row">
             <a href="#inicio" class="brand brand--footer">
-                <span class="brand__mark"></span>
+                <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+                    <rect width="32" height="32" rx="8" fill="url(#logoGradFooter)"/>
+                    <path d="M16 7l7 3v5c0 5-3 8.5-7 9.5-4-1-7-4.5-7-9.5v-5l7-3Z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
+                    <path d="M13 15.5l2 2 4-4.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="logoGradFooter" x1="0" y1="0" x2="32" y2="32">
+                            <stop offset="0" stop-color="#C8862E"/>
+                            <stop offset="1" stop-color="#1E4335"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
                 <span class="brand__text">As Control<br><span>de Plagas</span></span>
             </a>
             <p class="footer__copy">© <span id="anio-actual"></span> As Control de Plagas. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <a href="#contacto" class="fab" aria-label="Pedir diagnostico">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M4 5c0 8.3 6.7 15 15 15l3-4-6-2-2 2c-2.5-1-4-2.5-5-5l2-2-2-6-4 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+    <a href="https://wa.me/5493884044634" target="_blank" rel="noopener" class="fab" aria-label="Escribinos por WhatsApp">
+        <i class="bi bi-whatsapp"></i>
     </a>
 
     <script src="script.js"></script>

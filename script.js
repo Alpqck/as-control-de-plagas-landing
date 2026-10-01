@@ -5,12 +5,20 @@
 // contacto (manda el mail via Formspree, ver inicializarFormularioContacto).
 // ============================================================
 
+// la empresa arranco en 2008: esto se recalcula solo cada anio, sin
+// tener que tocar el HTML nunca mas.
+const ANIO_FUNDACION = 2008;
+
 document.addEventListener('DOMContentLoaded', () => {
     inicializarHeader();
     inicializarMenuMobile();
     inicializarScrollReveal();
     inicializarFormularioContacto();
-    document.getElementById('anio-actual').textContent = new Date().getFullYear();
+    inicializarScrollspy();
+
+    const anioActual = new Date().getFullYear();
+    document.getElementById('anio-actual').textContent = anioActual;
+    document.getElementById('anios-experiencia').textContent = anioActual - ANIO_FUNDACION;
 });
 
 // ---------- header con fondo al hacer scroll ----------
@@ -70,6 +78,28 @@ function inicializarScrollReveal() {
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
     elementos.forEach(el => observer.observe(el));
+}
+
+// ---------- resalta en el menu la seccion que se esta viendo ----------
+
+function inicializarScrollspy() {
+    const secciones = document.querySelectorAll('main section[id]');
+    const links = document.querySelectorAll('.nav__link');
+
+    const marcarActivo = (id) => {
+        links.forEach(link => {
+            link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+        });
+    };
+
+    if (!('IntersectionObserver' in window) || secciones.length === 0) return;
+
+    const observer = new IntersectionObserver((entradas) => {
+        const visible = entradas.find(entrada => entrada.isIntersecting);
+        if (visible) marcarActivo(visible.target.id);
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    secciones.forEach(seccion => observer.observe(seccion));
 }
 
 // ---------- formulario de contacto ----------
